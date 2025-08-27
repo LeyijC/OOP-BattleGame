@@ -1,6 +1,6 @@
 import javax.swing.JOptionPane;
 
-// Abstract class to follow abstraction principles
+
 abstract class Character {
     protected String name;
     protected int hp = 100;
@@ -10,13 +10,13 @@ abstract class Character {
         this.name = name;
     }
 
-    public abstract int attack();  // basic attack
-    public abstract int special(); // special move
-    public abstract int secret();  // secret power
+    public abstract int attack();  
+    public abstract int special(); 
+    public abstract int secret(); 
 
     public void takeDamage(int damage) {
         hp -= damage;
-        if (hp < 0) hp = 0; // avoid negative HP
+        if (hp < 0) hp = 0; 
     }
 
     public int getHp() {
@@ -32,7 +32,7 @@ abstract class Character {
     }
 }
 
-// Mage class
+
 class Mage extends Character {
     public Mage(String name) {
         super(name);
@@ -40,21 +40,20 @@ class Mage extends Character {
 
     @Override
     public int attack() {
-        return 20; // fireball damage
+        return 20; 
     }
 
     @Override
     public int special() {
-        return 25; // lightning strike
-    }
+        return 25; 
 
     @Override
     public int secret() {
-        return 35; // secret ultimate power
+        return 35; 
     }
 }
 
-// Warrior class
+
 class Warrior extends Character {
     public Warrior(String name) {
         super(name);
@@ -62,23 +61,23 @@ class Warrior extends Character {
 
     @Override
     public int attack() {
-        return 15; // sword slash
+        return 15; 
     }
 
     @Override
     public int special() {
-        return 20; // shield bash
+        return 20; 
     }
 
     @Override
     public int secret() {
-        return 30; // berserk strike
+        return 30; 
     }
 }
 
 public class BattleGame {
     public static void main(String[] args) {
-        // Input character names
+        
         String mageName = JOptionPane.showInputDialog("Enter Mage's name:");
         String warriorName = JOptionPane.showInputDialog("Enter Warrior's name:");
 
@@ -89,9 +88,9 @@ public class BattleGame {
             "Game starts!\n" + mage.getName() + " vs " + warrior.getName() + 
             "\nBoth have 100 HP!");
 
-        // Battle loop
+        
         while (mage.isAlive() && warrior.isAlive()) {
-            // Mage turn
+            
             String mageChoice = JOptionPane.showInputDialog(
                 mage.getName() + "'s turn!\nChoose move:\n1. Fireball (20)\n2. Lightning Strike (25)\n3. Secret Power (35)"
             );
@@ -108,10 +107,10 @@ public class BattleGame {
             }
             warrior.takeDamage(mageDamage);
 
-            // Check if warrior is defeated
+            
             if (!warrior.isAlive()) break;
 
-            // Warrior turn
+            
             String warriorChoice = JOptionPane.showInputDialog(
                 warrior.getName() + "'s turn!\nChoose move:\n1. Sword Slash (15)\n2. Shield Bash (20)\n3. Berserk Strike (30)"
             );
@@ -141,3 +140,4 @@ public class BattleGame {
         JOptionPane.showMessageDialog(null, "🎉 " + winner + " wins the battle!");
     }
 }
+
