@@ -38,16 +38,16 @@ class Mage extends Character {
         super(name);
     }
 
-    @Override
+    
     public int attack() {
         return 20; 
     }
 
-    @Override
+    
     public int special() {
         return 25; 
 
-    @Override
+    
     public int secret() {
         return 35; 
     }
@@ -59,17 +59,17 @@ class Warrior extends Character {
         super(name);
     }
 
-    @Override
+    
     public int attack() {
         return 15; 
     }
 
-    @Override
+    
     public int special() {
         return 20; 
     }
 
-    @Override
+    
     public int secret() {
         return 30; 
     }
@@ -127,7 +127,7 @@ public class BattleGame {
             }
             mage.takeDamage(warriorDamage);
 
-            // Show HP status
+            
             JOptionPane.showMessageDialog(null, 
                 "HP Status:\n" + 
                 mage.getName() + " (Mage): " + mage.getHp() + " HP\n" +
@@ -135,9 +135,10 @@ public class BattleGame {
             );
         }
 
-        // Announce winner
+        
         String winner = mage.isAlive() ? mage.getName() : warrior.getName();
         JOptionPane.showMessageDialog(null, "🎉 " + winner + " wins the battle!");
     }
 }
+
 
